@@ -2,7 +2,6 @@ package category_tests;
 
 import com.jayway.jsonpath.JsonPath;
 import com.neetgramming.request_util.CategoryRequestUtil;
-import org.json.JSONObject;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
@@ -17,7 +16,7 @@ public class CategoryTest {
         String responseBody = response.body();
 
         String actualName = JsonPath.parse(responseBody).read("$.Name");
-        boolean actualCanReList = (Boolean)(JsonPath.parse(responseBody).read("$.CanRelist"));
+        boolean actualCanReList = JsonPath.parse(responseBody).read("$.CanRelist");
         boolean actualDescriptionContains = JsonPath.parse(responseBody).
                 read("$.Promotions[?(@.Name=='Gallery')].Description").toString().
                 contains("Good position in category");
