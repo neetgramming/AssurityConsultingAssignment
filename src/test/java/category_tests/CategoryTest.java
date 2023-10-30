@@ -10,6 +10,7 @@ import java.net.http.HttpResponse;
 public class CategoryTest {
     private static final String REQ_URL = "https://api.tmsandbox.co.nz/v1/Categories/6327/Details.json?catalogue=false";
     private final SoftAssert softAssert = new SoftAssert();
+
     @Test
     public void testCategory() {
         HttpResponse<String> response = CategoryRequestUtil.getResponse(REQ_URL);
